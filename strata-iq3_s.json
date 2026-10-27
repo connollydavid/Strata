@@ -8,6 +8,7 @@
   "--prefill", "auto",
   "--spec", "4",
   "--mtp", "/opt/models/strata/mtp/rt",
+  "--expert-profile", "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/data/expert-profile.bin",
   "--max-context", "524288",
   "--rope-scaling", "yarn",
   "--rope-scale", "2",

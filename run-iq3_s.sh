@@ -10,8 +10,8 @@
 # setup derives the same value for any context past 262144.
 #
 # Tuned trio from the 2026-10-19 calibration (pcie-frac 0.34,
-# prefill-pipe 1536, spec-min-p 0.70). The learned --expert-profile of the
-# original bringup was lost with the old worktree and is dropped: the
-# shipped profile stands (re-learn with --expert-profile-save if wanted).
+# prefill-pipe 1536, spec-min-p 0.70). --expert-profile points at the
+# SHIPPED profile in the worktree's data/ — required: a layer split across
+# the two GPUs refuses to start without one (the engine names it).
 cd "$(dirname "$0")" || exit 1
 exec .venv/bin/python serve/server.py --engine strata --config strata-iq3_s.json --port 18195
