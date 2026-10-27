@@ -1,0 +1,30 @@
+# Strata server (qwen3.8-flash-next IQ3_S, 1 slot x 524288, int8 KV, YaRN 2)
+# — the flash-next engine stood up by plan/0149; standing backend per
+# call/0041; context doubled past the trained 262144 with yarn factor 2
+# (2026-10-27). NOT enabled at boot while llama-server remains the boot
+# default (plan/0150 phase order); scripts/model-swap.sh decides which
+# engine stands. The two engines are GPU-exclusive (call/0006): never run
+# both at once.
+#
+# Versioned copy of /etc/systemd/system/strata.service (paths point at the
+# recipe's worktree, software/strata/yarn-audited-line).
+[Unit]
+Description=Strata server (qwen3.8-flash-next iq3_s 1x524288 int8-kv yarn2)
+After=network.target
+
+[Service]
+Type=simple
+User=dconnolly
+WorkingDirectory=/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line
+ExecStart=/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/run-iq3_s.sh
+# The engine page-locks ~50 GiB of expert RAM for GPU access.
+LimitMEMLOCK=infinity
+LimitNOFILE=65536
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=900
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

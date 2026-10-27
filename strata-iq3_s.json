@@ -1,0 +1,32 @@
+{
+ "exe": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/engine/strata",
+ "args": [
+  "--pack", "/opt/models/strata/packs/iq3_s",
+  "--native", "/opt/models/strata/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+  "--ple-gguf", "/opt/models/strata/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+  "--expert-cache", "auto",
+  "--prefill", "auto",
+  "--spec", "4",
+  "--mtp", "/opt/models/strata/mtp/rt",
+  "--max-context", "524288",
+  "--rope-scaling", "yarn",
+  "--rope-scale", "2",
+  "--kv", "int8",
+  "--kv-resident", "32768",
+  "--pcie-frac", "0.34",
+  "--spec-min-p", "0.70",
+  "--prefill-pipe", "1536",
+  "--conversation-cache-mib", "40960",
+  "--conversation-cache-slots", "6"
+ ],
+ "cwd": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line",
+ "tokenizer": "/opt/models/strata/packs/iq3_s/tokenizer",
+ "model_name": "qwen3.8-flash-next-iq3_s",
+ "log": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/strata-iq3_s.log",
+ "lib_dirs": ["/opt/cuda/bin", "/opt/cuda/lib64"],
+ "port": 18195,
+ "gpu": [0, 1],
+ "gpus_asked": true,
+ "layer_split": "auto",
+ "open_browser": false
+}

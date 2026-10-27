@@ -64,3 +64,8 @@ build-vision-cuda12.bat
 
 # local Windows HIP packaging output
 dist-hip/
+
+# The deployment launch files are versioned on purpose (they were lost with
+# the old worktree; see plan/0149/0152). setup regenerates others like them.
+!/run-iq3_s.sh
+!/strata-iq3_s.json
