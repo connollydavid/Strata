@@ -5,7 +5,7 @@
   "--native", "/opt/models/strata/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
   "--ple-gguf", "/opt/models/strata/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
   "--expert-cache", "auto",
-  "--prefill", "auto",
+  "--prefill", "auto:16384",
   "--spec", "4",
   "--mtp", "/opt/models/strata/mtp/rt",
   "--expert-profile", "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/data/expert-profile.bin",
@@ -14,11 +14,15 @@
   "--rope-scale", "2",
   "--kv", "int8",
   "--kv-resident", "32768",
+  "--vram-reserve-later-mib", "1072",
   "--pcie-frac", "0.34",
   "--spec-min-p", "0.70",
   "--prefill-pipe", "1536",
-  "--conversation-cache-mib", "40960",
-  "--conversation-cache-slots", "6"
+  "--ple-row-cache", "4194304",
+  "--conversation-cache-mib", "45056",
+  "--conversation-cache-slots", "6",
+  "--conversation-cache-park-gain", "8192",
+  "--conversation-cache-min-tokens", "4096"
  ],
  "cwd": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line",
  "tokenizer": "/opt/models/strata/packs/iq3_s/tokenizer",
@@ -29,5 +33,10 @@
  "gpu": [0, 1],
  "gpus_asked": true,
  "layer_split": "auto",
- "open_browser": false
+ "open_browser": false,
+ "env": {
+  "STRATA_PIPED_CONCURRENT": "1",
+  "STRATA_SPLIT_OWN": "auto",
+  "STRATA_STAGE_TRIM": "1"
+ }
 }
