@@ -20,5 +20,13 @@
 # dual-GPU layer split requires. Prefill auto:16384 per the community A/B
 # (#4182: 16384 is the 4.2x sweet spot on 24 GB cards; 32768 regresses).
 # Conversation cache 45056/6 = every slot holds a full 524288-token window.
+#
+# Pictures (plan/0153): --vision runs the external strata-vision reader
+# (llama.cpp mtmd, from upstream's v0.2.7 engine package) over the model's
+# mmproj, on the GPU as the docs' own rule gives for 24 GB cards (0.1-0.5 s
+# a picture). --vram-reserve-mib 700 makes the engine budget the reader's
+# context into its load plan (the auto expert cache sizes around it, a few
+# % of decode upstream-measured), composing with reserve-later 1072; the
+# reader itself is pinned to GPU1 (cuda_device), the card with the room.
 cd "$(dirname "$0")" || exit 1
 exec .venv/bin/python serve/server.py --engine strata --config strata-iq3_s.json --port 18195
