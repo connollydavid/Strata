@@ -46,6 +46,7 @@
   "env": {
     "STRATA_PIPED_CONCURRENT": "1",
     "STRATA_SPLIT_OWN": "auto",
-    "STRATA_STAGE_TRIM": "1"
+    "STRATA_STAGE_TRIM": "1",
+    "STRATA_SM75_PERF": "1"
   }
 }
