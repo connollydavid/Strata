@@ -1,0 +1,51 @@
+{
+  "exe": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/engine/strata",
+  "args": [
+    "--pack", "/opt/models/strata/packs/ud_iq4xs",
+    "--native", "/opt/models/strata/models/UD-IQ4_XS/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00004.gguf",
+    "--ple-gguf", "/opt/models/strata/models/UD-IQ4_XS/Qwen3.8-Flash-Next-UD-IQ4_XS-00004-of-00004.gguf",
+    "--expert-cache", "auto",
+    "--prefill", "auto:16384",
+    "--spec", "4",
+    "--mtp", "/opt/models/strata/mtp/rt",
+    "--expert-profile", "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/data/expert-profile.bin",
+    "--max-context", "524288",
+    "--rope-scaling", "yarn",
+    "--rope-scale", "2",
+    "--kv", "int8",
+    "--kv-resident", "32768",
+    "--vram-reserve-later-mib", "1072",
+    "--vram-reserve-mib", "700",
+    "--vision",
+    "--pcie-frac", "0.34",
+    "--spec-min-p", "0.70",
+    "--prefill-pipe", "1536",
+    "--ple-row-cache", "4194304",
+    "--conversation-cache-mib", "30208",
+    "--conversation-cache-slots", "4",
+    "--conversation-cache-park-gain", "8192",
+    "--conversation-cache-min-tokens", "4096"
+  ],
+  "cwd": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line",
+  "tokenizer": "/opt/models/strata/packs/ud_iq4xs/tokenizer",
+  "model_name": "qwen3.8-flash-next-ud-iq4xs",
+  "log": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/strata-ud_v31_iq4xs.log",
+  "lib_dirs": ["/opt/cuda/bin", "/opt/cuda/lib64"],
+  "port": 18195,
+  "gpu": [0, 1],
+  "gpus_asked": true,
+  "layer_split": "auto",
+  "open_browser": false,
+  "vision": {
+    "gpu": true,
+    "cuda_device": 1,
+    "exe": "/home/dconnolly/yarn-agentic/software/strata/yarn-audited-line/engine/strata-vision",
+    "mmproj": "/opt/models/strata/models/UD-IQ4_XS/mmproj-Qwen3.8-Flash-Next-BF16.gguf",
+    "model": "/opt/models/strata/models/UD-IQ4_XS/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00004.gguf"
+  },
+  "env": {
+    "STRATA_PIPED_CONCURRENT": "1",
+    "STRATA_SPLIT_OWN": "auto",
+    "STRATA_STAGE_TRIM": "1"
+  }
+}

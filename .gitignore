@@ -74,6 +74,8 @@ dist-hip/
 # the old worktree; see plan/0149/0152). setup regenerates others like them.
 !/run-iq3_s.sh
 !/strata-iq3_s.json
+!/run-ud_v31_iq4xs.sh
+!/strata-ud_v31_iq4xs.json
 
 # Terminal / Desktop split: local venvs, build output and archives never enter git
 .terminal-venv/
