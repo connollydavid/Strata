@@ -20,7 +20,7 @@
     "--pcie-frac", "0.34",
     "--spec-min-p", "0.70",
     "--prefill-pipe", "1536",
-    "--ple-row-cache", "4194304",
+    "--ple-row-cache", "33554432",
     "--conversation-cache-mib", "30208",
     "--conversation-cache-slots", "4",
     "--conversation-cache-park-gain", "8192",
@@ -47,6 +47,7 @@
     "STRATA_PIPED_CONCURRENT": "1",
     "STRATA_SPLIT_OWN": "auto",
     "STRATA_STAGE_TRIM": "1",
-    "STRATA_SM75_PERF": "1"
+    "STRATA_SM75_PERF": "1",
+    "STRATA_PLE_AUTO_RAM": "0"
   }
 }
